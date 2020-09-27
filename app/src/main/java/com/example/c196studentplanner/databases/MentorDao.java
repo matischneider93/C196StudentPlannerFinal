@@ -10,6 +10,9 @@ import com.example.c196studentplanner.models.Mentor;
 import java.util.List;
 
 public interface MentorDao {
+    @Query("SELECT * FROM mentor_table ORDER BY mentor_id")
+    List<Mentor> getMentorList();
+
     @Query("SELECT * FROM mentor_table WHERE mentor_id = :mentorId ORDER BY mentor_id")
     Mentor getMentor(int mentorId);
 

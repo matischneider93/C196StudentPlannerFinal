@@ -10,6 +10,9 @@ import com.example.c196studentplanner.models.Note;
 import java.util.List;
 
 public interface NoteDao {
+    @Query("SELECT * FROM note_table ORDER BY note_id")
+    List<Note> getNoteList();
+
     @Query("SELECT * FROM note_table WHERE note_id = :noteId ORDER BY note_id")
     Note getNote(int noteId);
 

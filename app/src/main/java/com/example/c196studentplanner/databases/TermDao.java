@@ -12,6 +12,10 @@ import java.util.List;
 
 @Dao
 public interface TermDao {
+
+    @Query("SELECT * FROM term_table ORDER BY term_id")
+    List<Term> getTermList();
+
     @Query("SELECT * FROM term_table WHERE term_id = :termId ORDER BY term_id")
     Term getTerm(int termId);
 

@@ -10,6 +10,9 @@ import com.example.c196studentplanner.models.Course;
 import java.util.List;
 
 public interface CourseDao {
+    @Query("SELECT * FROM course_table ORDER BY course_id")
+    List<Course> getCourseList();
+
     @Query("SELECT * FROM course_table WHERE course_id = :courseId ORDER BY course_id")
     Course getCourse(int courseId);
 

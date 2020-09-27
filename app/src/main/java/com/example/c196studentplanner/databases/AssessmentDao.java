@@ -10,6 +10,9 @@ import com.example.c196studentplanner.models.Assessment;
 import java.util.List;
 
 public interface AssessmentDao {
+    @Query("SELECT * FROM assessment_table ORDER BY assessment_id")
+    List<Assessment> getAssessmentList();
+
     @Query("SELECT * FROM assessment_table WHERE assessment_id = :assessmentId ORDER BY assessment_id")
     Assessment getAssessment(int assessmentId);
 
