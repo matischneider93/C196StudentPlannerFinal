@@ -17,6 +17,7 @@ public class Term {
     @ColumnInfo(name = "term_end")
     private Date term_end;
 
+
     // Getters
     public int getTerm_id() {
         return term_id;
