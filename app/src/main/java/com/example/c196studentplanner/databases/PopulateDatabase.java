@@ -96,6 +96,22 @@ public class PopulateDatabase extends AppCompatActivity {
     }
 
     private void insertAssessments() {
+        List<Course> courseList = appDB.courseDao().getCourseList();
+        if (courseList == null) return;
+
+        tempAssessment1.setAssessment_title("Android Project");
+        tempAssessment1.setAssessment_type("Peformance");
+        tempAssessment1.setCourse_id_fk(courseList.get(0).getCourse_id());
+
+        tempAssessment2.setAssessment_title("Capstone");
+        tempAssessment2.setAssessment_type("Peformance");
+        tempAssessment2.setCourse_id_fk(courseList.get(1).getCourse_id());
+
+        tempAssessment3.setAssessment_title("Data Management");
+        tempAssessment3.setAssessment_type("Objective");
+        tempAssessment3.setCourse_id_fk(courseList.get(2).getCourse_id());
+
+        appDB.assessmentDao().insertAll(tempAssessment1, tempAssessment2, tempAssessment3);
     }
 
     private void insertCourses() {
